@@ -23,5 +23,5 @@ class Room(
             return "지하 ${-this.floor}층"}
 
     }
-    }
+
 }
