@@ -1,5 +1,6 @@
 package com.kim.landapp_kim
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.kim.landapp_kim.adapters.RoomAdapter
@@ -28,7 +29,16 @@ lateinit var mRoomAdapter : RoomAdapter
 
         mRoomAdapter = RoomAdapter(this,R.layout.room_list_item,mRoomList)
         roomListView.adapter = mRoomAdapter
+        
+        roomListView.setOnItemClickListener { parent, view, position, id ->
 
+            val clickedRoom = mRoomList[position]
+
+            val myIntent = Intent(this, ViewRoomDetailActivity::class.java)
+            myIntent.putExtra("room",clickedRoom)
+            startActivity(myIntent)
+
+        }
 
     }
 }
